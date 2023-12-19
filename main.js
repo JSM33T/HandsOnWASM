@@ -4,11 +4,11 @@ async function calculateResult() {
     // Define an empty imports object
     const imports = {};
 
-    const { instance } = await WebAssembly.instantiateStreaming(fetch('add.wasm'), imports);
+    const { instance } = await WebAssembly.instantiateStreaming(fetch('fibonaccisum.wasm'), imports);
 
     const inputA = parseInt(document.getElementById('inputA').value, 10);
     const startTime = performance.now();
-    const result = instance.exports.add(inputA);
+    const result = instance.exports.fibonaccisum(inputA);
     const endTime = performance.now();
     document.getElementById('result').innerText = `Result: ${result}`;
    
